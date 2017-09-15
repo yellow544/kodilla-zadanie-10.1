@@ -1,11 +1,16 @@
-var buttonsClass = document.getElementsByClassName('button');
-var buttonsNumber = buttonsClass.length;
+var span = $("span");
+span.each(function(index, element) {
+	if(index % 2 === 0) {
+		$(element).css('color', 'red');
+	};
+});
 
-function buttonsName(){
-  for (var i = 0; i < buttonsNumber; i++){
-    var buttonSample = buttonsClass[i].innerText;
-    console.log(buttonSample);
-    }
- }
+var paragraphs = $('p');
+paragraphs.each(function(index, element) {
+	var button = '<button class="btn" data-tmp="' + index + '">Click me</button>';
+	$(element).append(button);
+});
 
-buttonsName();
+$("button").click(function(){
+	alert($(this).attr("data-tmp"));
+});
